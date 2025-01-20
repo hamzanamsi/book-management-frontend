@@ -1,0 +1,21 @@
+<div class="book-management">
+  <h2>Books Management</h2>
+  <button class="create-button" (click)="openModal()">Create New Book</button>
+
+  <app-book-list
+    [books]="books$ | async"
+    (deleteBook)="handleDeleteBook($event)"
+    (viewDetails)="handleViewDetails($event)"
+  >
+  </app-book-list>
+  <app-create-books-form
+    *ngIf="isModalOpen"
+    (bookFormSubmitted)="handleBookFormSubmitted($event)"
+    (closeModal)="closeModal()"
+  ></app-create-books-form>
+  <app-book-details
+    *ngIf="isDetailsModalOpen"
+    [book]="selectedBook"
+    (modalClosed)="closeDetailsModal()"
+  ></app-book-details>
+</div>

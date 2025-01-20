@@ -1,0 +1,10 @@
+<div class="modal-overlay">
+  <div class="modal">
+    <button class="close-button" (click)="closeModal()">×</button>
+    <h2>{{ book()?.title }}</h2>
+    <img [src]="book()?.coverImage" alt="{{ book()?.title }}" />
+    <p><strong>Author:</strong> {{ book()?.author }}</p>
+    <p><strong>Genre:</strong> {{ book()?.genre }}</p>
+    <p><strong>Description:</strong> {{ book()?.description }}</p>
+  </div>
+</div>

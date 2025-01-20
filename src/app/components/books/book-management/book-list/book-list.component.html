@@ -1,0 +1,21 @@
+<div class="books-list">
+  @if (!isLoading && books()?.length) { @for (book of books(); track book.id) {
+  <div class="book-card">
+    <img
+      [src]="book.coverImage || 'default-cover.png'"
+      alt="{{ book.title }}"
+      class="book-cover"
+    />
+    <h3>{{ book.title }}</h3>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>Genre:</strong> {{ book.genre }}</p>
+    <div class="actions">
+      <button (click)="onViewDetails(book)">Details</button>
+      <button (click)="onWriteReview(book)">Review</button>
+      <button class="delete-button" (click)="onDelete(book)">Delete</button>
+    </div>
+  </div>
+  } } @if (!isLoading && (!books() || books()?.length === 0)) {
+  <div class="no-books">No books available.</div>
+  }
+</div>
